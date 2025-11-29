@@ -1,1 +1,803 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prezo.design | Професионални презентации</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #7C3AED;
+            --primary-dark: #4C1D95;
+            --accent: #F3E8FF;
+            --white: #FFFFFF;
+            --text: #333333;
+            --light-text: #666666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--white);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Навигация */
+        nav {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 30px;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+        
+        /* Хедър */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 150px 0 100px;
+            margin-top: 70px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-dark);
+            color: var(--white);
+        }
+        
+        /* Секции */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Услуги */
+        .services {
+            background-color: var(--accent);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+        
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 15px 0;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .service-features li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .service-features li:before {
+            content: "✓";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Защо да изберете мен */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+        
+        /* Форма за поръчка */
+        .order-form {
+            background-color: var(--accent);
+            padding: 60px 0;
+        }
+        
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+        
+        .checkbox-group input {
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 15px 20px;
+            background-color: var(--accent);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        /* Футър */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+        
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        /* Медийни заявки */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav>
+        <div class="container nav-container">
+            <h1 class="logo">prezo.design</h1>
+            <ul class="nav-menu">
+                <li><a href="#home">Начало</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#why-us">Защо аз</a></li>
+                <li><a href="#order">Поръчай</a></li>
+                <li><a href="#faq">Въпроси</a></li>
+            </ul>
+        </div>
+    </nav>
 
+    <!-- Хедър -->
+    <header id="home">
+        <div class="container hero">
+            <h1 class="fade-in">Професионални презентации за минути</h1>
+            <p class="fade-in">Създавам уникални и ефективни презентации, които впечатляват аудиторията. Бързо, качествено и на достъпни цени.</p>
+            <a href="#order" class="btn btn-primary fade-in">Поръчай сега</a>
+        </div>
+    </header>
+
+    <!-- Услуги -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Нашите услуги</h2>
+                <p>Избери пакета, който най-добре отговаря на твоите нужди</p>
+            </div>
+            <div class="services-grid">
+                <!-- Мини презентация -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Мини презентация</h3>
+                    <div class="price">3 лв</div>
+                    <p>Идеална за малки теми и кратки представяния</p>
+                    <ul class="service-features">
+                        <li>Готов шаблон</li>
+                        <li>Бърза изработка</li>
+                        <li>3-6 слайда</li>
+                        <li>Срок: до 1 ден</li>
+                    </ul>
+                    <a href="#order" class="btn">Избери</a>
+                </div>
+                
+                <!-- Стандартна презентация -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Стандартна презентация</h3>
+                    <div class="price">5 лв</div>
+                    <p>Най-популярният избор за баланс между цена и качество</p>
+                    <ul class="service-features">
+                        <li>Професионален шаблон</li>
+                        <li>Чист дизайн</li>
+                        <li>6-12 слайда</li>
+                        <li>Срок: 1-2 дни</li>
+                    </ul>
+                    <a href="#order" class="btn">Избери</a>
+                </div>
+                
+                <!-- UltraCustom презентация -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>UltraCustom презентация</h3>
+                    <div class="price">10 лв</div>
+                    <p>Премиум услуга с напълно персонализиран дизайн</p>
+                    <ul class="service-features">
+                        <li>Дизайн от нулата</li>
+                        <li>Проучване на темата</li>
+                        <li>Неограничени слайдове</li>
+                        <li>Срок: 3-5 дни</li>
+                        <li>Уникални оформления</li>
+                    </ul>
+                    <a href="#order" class="btn">Избери</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Защо да изберете мен -->
+    <section id="why-us">
+        <div class="container">
+            <div class="section-title">
+                <h2>Защо да изберете мен</h2>
+                <p>Причините, поради които клиентите се доверяват на моите услуги</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Бързо изпълнение</h3>
+                    <p>Спазвам сроковете и гарантирам бърза обработка на поръчките</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Качествен дизайн</h3>
+                    <p>Съвременни и визуално привлекателни дизайни, които впечатляват</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3>Корекции</h3>
+                    <p>Предоставям възможност за корекции, за да сте 100% доволни</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Материали от много източници</h3>
+                    <p>Използвам разнообразни източници, за да създам пълноценна презентация</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Цена/Качество</h3>
+                    <p>Предлагам конкурентни цени без компромис с качеството</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Поддръжка</h3>
+                    <p>На разположение съм за консултации и помощ преди и след поръчката</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Форма за поръчка -->
+    <section id="order" class="order-form">
+        <div class="container">
+            <div class="section-title">
+                <h2>Направете поръчка</h2>
+                <p>Попълнете формата по-долу и ще се свържа с вас възможно най-бързо</p>
+            </div>
+            <div class="form-container fade-in">
+                <form id="orderForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <label for="name">Име и фамилия *</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Имейл адрес *</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Телефонен номер</label>
+                        <input type="tel" id="phone" name="phone" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Вид презентация *</label>
+                        <select id="service" name="service" class="form-control" required>
+                            <option value="" disabled selected>Изберете вид презентация</option>
+                            <option value="mini">Мини презентация (3 лв)</option>
+                            <option value="standard">Стандартна презентация (5 лв)</option>
+                            <option value="ultracustom">UltraCustom презентация (10 лв)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">Описание на презентацията *</label>
+                        <textarea id="description" name="description" class="form-control" placeholder="Опишете темата, целите и специфичните изисквания за вашата презентация..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="attachment">Прикачете файлове (по желание)</label>
+                        <input type="file" id="attachment" name="attachment" class="form-control">
+                        <small>Можете да прикачите снимки, документи или други материали, които да бъдат включени в презентацията</small>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="cashOnDelivery" name="cashOnDelivery" required>
+                        <label for="cashOnDelivery">Съгласявам се с условията за наложен платеж - плащането става само при получаване на готовата презентация.</label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Изпрати поръчка</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Често задавани въпроси -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Често задавани въпроси</h2>
+                <p>Отговори на най-честите въпроси относно нашите услуги</p>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>Как протича процесът на поръчка?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>След като попълните формата за поръчка, ще се свържа с вас за потвърждение и допълнителни детайли. След това започвам работа по вашата презентация и я изпращам на посочения имейл в договорения срок.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>Кога ще получа готовата презентация?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Сроковете зависят от избрания пакет: Мини презентация - до 1 ден, Стандартна - 1-2 дни, UltraCustom - 3-5 дни. При спешни поръчки може да се обсъди по-кратък срок.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>Мога ли да поискам корекции?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, разбира се! Предоставям до 2 безплатни корекции в рамките на 7 дни след получаване на презентацията. Допълнителни промени могат да се обсъдят отделно.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>Как се извършва плащането?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Работя само с наложен платеж. Плащате само когато получите и одобрите готовата презентация. Това гарантира, че сте напълно доволни от резултата преди да заплатите.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>Мога ли да поръчам презентация извън посочените пакети?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, разбира се! Ако имате специфични изисквания, които не се вписват в нито един от пакетите, моля свържете се директно с мен и ще обсъдим персонализирано решение.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футър -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>prezo.design</h3>
+                    <p>Създавам професионални и визуално впечатляващи презентации, които помагат на вашите идеи да бъдат запомнени.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Бързи връзки</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Начало</a></li>
+                        <li><a href="#services">Услуги</a></li>
+                        <li><a href="#why-us">Защо аз</a></li>
+                        <li><a href="#order">Поръчай</a></li>
+                        <li><a href="#faq">Въпроси</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакти</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> info@prezo.design</li>
+                        <li><i class="fas fa-phone"></i> +359 88 123 4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> България</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 prezo.design - Всички права запазени. | Изработка по поръчка</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Активиране на FAQ въпроси
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentNode;
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Анимация при скрол
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = "1";
+                    element.style.transform = "translateY(0)";
+                }
+            });
+        };
+        
+        // Първоначално скриване на елементите за анимация
+        window.addEventListener('load', () => {
+            fadeElements.forEach(element => {
+                element.style.opacity = "0";
+                element.style.transform = "translateY(20px)";
+                element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+            });
+            fadeInOnScroll();
+        });
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        
+        // Плавно скролиране до секции
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Промяна на навигацията при скрол
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
