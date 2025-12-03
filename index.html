@@ -615,10 +615,30 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="attachment">Прикачете файлове (по желание)</label>
-                        <input type="file" id="attachment" name="attachment" class="form-control">
-                        <small>Можете да прикачите снимки, документи или други материали, които да бъдат включени в презентацията</small>
-                    </div>
+    <label for="attachment">Прикачи файлове (по желание)</label>
+    <input type="file" id="attachment" name="attachment" class="form-control">
+    
+    <div style="margin-top: 15px; padding: 12px; background: #F3E8FF; border-radius: 8px; border-left: 4px solid #7C3AED;">
+        <div style="display: flex; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 1.2rem; margin-right: 10px;">📁</span>
+            <strong style="color: #4C1D95;">Важно за файловете:</strong>
+        </div>
+        <p style="margin: 5px 0; font-size: 0.9rem;">
+            • Тук можеш да прикачиш <strong>един файл</strong> (до 10MB)
+        </p>
+        <p style="margin: 5px 0; font-size: 0.9rem;">
+            • Ако имаш <strong>повече файлове</strong>, снимки или големи файлове:
+        </p>
+        <a href="https://drive.google.com/drive/folders/1XSW4bUZCnH7r-cuO1HRfyLsiDE5RzErx?usp=sharing" 
+           target="_blank"
+           style="display: inline-block; margin-top: 8px; padding: 8px 15px; background: #7C3AED; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+           📤 Качи ги в Google Drive папката
+        </a>
+        <p style="margin-top: 10px; font-size: 0.85rem; color: #666;">
+            🔒 Папката е защитена - само ти и аз можем да видим файловете
+        </p>
+    </div>
+</div>
                     
                     <div class="checkbox-group">
                         <input type="checkbox" id="cashOnDelivery" name="cashOnDelivery" required>
